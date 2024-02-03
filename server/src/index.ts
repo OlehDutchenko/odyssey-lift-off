@@ -1,6 +1,6 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { Context } from './context';
+import { DataSourceContext } from './context';
 import { TrackAPI } from './datasources/track-api';
 import { resolvers } from './resolvers';
 import { typeDefs } from './schema';
@@ -12,11 +12,11 @@ async function startApolloServer(): Promise<void> {
 	});
 
 	const { url } = await startStandaloneServer(server, {
-		context: async (): Promise<Context> => {
+		context: async (): Promise<DataSourceContext> => {
 			const { cache } = server;
 			return Promise.resolve({
 				dataSources: {
-					trackApi: new TrackAPI({ cache }),
+					trackAPI: new TrackAPI({ cache }),
 				},
 			});
 		},

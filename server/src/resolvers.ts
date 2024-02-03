@@ -1,25 +1,14 @@
-import type { GraphQLFieldResolver } from 'graphql/type';
-import type { Context } from './context';
-import type { TrackApiSourceTrack } from './datasources/track-api';
+import type { Resolvers } from './types';
 
-type Resolver<Source = any> = GraphQLFieldResolver<Source, Context>;
-
-export const resolvers: {
-	Query: {
-		tracksForHome: Resolver;
-	};
-	Track: {
-		author: Resolver<TrackApiSourceTrack>;
-	};
-} = {
+export const resolvers: Resolvers = {
 	Query: {
 		tracksForHome: (_, __, { dataSources }, info) => {
-			return dataSources.trackApi.getTracks();
+			return dataSources.trackAPI.getTracks();
 		},
 	},
 	Track: {
 		author: ({ authorId }, _, { dataSources }, info) => {
-			return dataSources.trackApi.getAuthor(authorId);
+			return dataSources.trackAPI.getAuthor(authorId);
 		},
 	},
 };
