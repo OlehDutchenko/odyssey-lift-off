@@ -1,18 +1,26 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { addMocksToSchema } from '@graphql-tools/mock';
-import { makeExecutableSchema } from '@graphql-tools/schema';
+import { Context } from './context';
+import { TrackAPI } from './datasources/track-api';
+import { resolvers } from './resolvers';
 import { typeDefs } from './schema';
 
 async function startApolloServer(): Promise<void> {
 	const server = new ApolloServer({
-		schema: addMocksToSchema({
-			schema: makeExecutableSchema({ typeDefs }),
-			mocks: createMocks(),
-		}),
+		typeDefs,
+		resolvers,
 	});
 
-	const { url } = await startStandaloneServer(server);
+	const { url } = await startStandaloneServer(server, {
+		context: async (): Promise<Context> => {
+			return Promise.resolve({
+				dataSources: {
+					trackApi: new TrackAPI(),
+				},
+			});
+		},
+	});
+
 	console.log(`
         🚀  Server is running!
         📭  Query at ${url}
