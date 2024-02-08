@@ -2,15 +2,16 @@
   "name": "catstronauts-server-complete",
   "version": "1.0.0",
   "description": "back-end demo app for Apollo's lift-off course",
-  "main": "src/index.js",
   "author": "Raphael Terrier @R4ph-t",
   "license": "MIT",
   "private": true,
+  "main": "src/index.js",
   "scripts": {
+    "postinstall": "npm run generate",
     "compile": "tsc",
     "dev": "ts-node-dev --respawn ./src/index.ts",
     "start": "npm run compile && nodemon ./dist/index.js",
-    "prettier": "prettier --check --write \"src/**/*.ts\"",
+    "prettier": "prettier --check --write \"./*.ts\" && prettier --check --write \"src/**/*.ts\"",
     "generate": "graphql-codegen"
   },
   "dependencies": {

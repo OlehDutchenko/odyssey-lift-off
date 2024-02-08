@@ -4,7 +4,7 @@ import { AuthorModel, TrackModel } from '../models';
 export class TrackAPI extends RESTDataSource {
 	baseURL = 'https://odyssey-lift-off-rest-api.herokuapp.com/';
 
-	getTracks() {
+	getTracksForHome() {
 		return this.get<TrackModel[]>('tracks');
 	}
 

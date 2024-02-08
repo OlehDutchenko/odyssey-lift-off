@@ -7,7 +7,7 @@
 		"test": "vitest",
 		"start": "vite",
 		"build": "vite build",
-		"prettier": "prettier --check --write \"src/**/*.ts\"",
+		"prettier": "prettier --check --write \"./*.ts\" && prettier --check --write \"src/**/*.ts\"",
 		"generate": "graphql-codegen"
 	},
 	"browserslist": {
