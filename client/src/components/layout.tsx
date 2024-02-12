@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from 'react';
-import { Header, Footer } from '../components';
 import styled from '@emotion/styled';
-import { widths, unit } from '../styles';
+import React, { PropsWithChildren } from 'react';
+import { Footer, Header } from '../components';
+import { unit, widths } from '../styles';
 
 interface LayoutProps {
 	fullWidth?: boolean;
@@ -40,7 +40,7 @@ const PageContainer = styled.div<LayoutProps>`
 	flex-grow: 1;
 	max-width: ${({ fullWidth }) =>
 		fullWidth ? undefined : `${widths.regularPageWidth}px`};
-	width: '100%';
+	width: 100%;
 	padding: ${({ fullWidth }) => (fullWidth ? 0 : unit * 2)};
 	padding-bottom: unit * 5;
 `;

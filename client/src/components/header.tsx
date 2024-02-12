@@ -1,8 +1,8 @@
-import React, { PropsWithChildren } from 'react';
-import { colors, widths } from '../styles';
 import styled from '@emotion/styled';
+import React, { PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/space_cat_logo.png';
+import { colors, widths } from '../styles';
 
 /**
  * Header renders the top navigation

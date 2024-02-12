@@ -1,8 +1,8 @@
-import React from 'react';
 import { MockedResponse } from '@apollo/client/testing';
+import React from 'react';
 import {
-	renderApolloWithRouter,
 	cleanup,
+	renderApolloWithRouter,
 	waitForElement,
 } from '../../utils/test-utils';
 import TrackCard from '../track-card';

@@ -1,14 +1,13 @@
-import React, { PropsWithChildren } from 'react';
-import styled from '@emotion/styled';
-import { LoadingSpinner } from '@apollo/space-kit/Loaders/LoadingSpinner';
 import { ApolloError } from '@apollo/client';
+import { LoadingSpinner } from '@apollo/space-kit/Loaders/LoadingSpinner';
+import styled from '@emotion/styled';
+import React, { PropsWithChildren } from 'react';
 
 interface QueryResultProps {
 	loading: boolean;
 	error?: ApolloError | undefined;
 	data?: unknown;
 }
-
 /**
  * Query Results conditionally renders Apollo useQuery hooks states:
  * loading, error or its children when data is ready

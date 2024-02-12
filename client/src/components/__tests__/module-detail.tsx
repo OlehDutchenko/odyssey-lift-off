@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithRouter, cleanup } from '../../utils/test-utils';
+import { cleanup, renderWithRouter } from '../../utils/test-utils';
 import ModuleDetail from '../module-detail';
 
 const mockModule = {

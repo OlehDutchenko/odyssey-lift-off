@@ -1,6 +1,6 @@
-import React from 'react';
 import { ApolloError } from '@apollo/client';
-import { render, cleanup } from '../../utils/test-utils';
+import React from 'react';
+import { cleanup, render } from '../../utils/test-utils';
 import QueryResult from '../query-result';
 
 describe('Query Result', () => {

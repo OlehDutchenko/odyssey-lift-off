@@ -15,7 +15,6 @@ ReactDOM.render(
 			<GlobalStyles />
 			<Pages />
 		</ApolloProvider>
-		,
 	</React.StrictMode>,
 	document.getElementById('root')
 );

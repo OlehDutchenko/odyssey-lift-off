@@ -1,8 +1,8 @@
-import React, { ComponentProps } from 'react';
+import { MockedProvider } from '@apollo/client/testing';
 import { render } from '@testing-library/react';
+import React, { ComponentProps } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
-import { MockedProvider } from '@apollo/client/testing';
 
 const renderApollo = (
 	node: React.ReactElement,

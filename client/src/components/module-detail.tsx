@@ -1,11 +1,11 @@
-import React from 'react';
 import styled from '@emotion/styled';
+import React from 'react';
+import ReactPlayer from 'react-player/youtube';
 import { colors, widths } from '../styles';
 import useWindowDimensions from '../utils/useWindowDimensions';
 import ContentSection from './content-section';
-import ReactPlayer from 'react-player/youtube';
-import ModulesNav from './modules-navigation';
 import MarkDown from './md-content';
+import ModulesNav from './modules-navigation';
 
 /**
  * Module Detail renders content of a given module:

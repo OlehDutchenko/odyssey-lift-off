@@ -1,15 +1,15 @@
-import React from 'react';
 import styled from '@emotion/styled';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
-	colors,
 	Button,
-	IconRun,
-	IconView,
-	IconTime,
+	colors,
 	IconBook,
+	IconRun,
+	IconTime,
+	IconView,
 } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
-import { Link } from 'react-router-dom';
 import ContentSection from './content-section';
 import MarkDown from './md-content';
 
@@ -61,16 +61,15 @@ const TrackDetail: React.FC<{ track: any }> = ({ track }) => {
 						<AuthorName>{author.name}</AuthorName>
 					</DetailItem>
 					<div>
-						{/* Need to comment this out until Link is placed within a Router */}
-						{/* <StyledLink to={`./module/${modules[0]['id']}`}> */}
-						<Button
-							icon={<IconRun width="20px" />}
-							color={colors.pink.base}
-							size="large"
-						>
-							Start Track
-						</Button>
-						{/* </StyledLink> */}
+						<StyledLink to={`./module/${modules[0]['id']}`}>
+							<Button
+								icon={<IconRun width="20px" />}
+								color={colors.pink.base}
+								size="large"
+							>
+								Start Track
+							</Button>
+						</StyledLink>
 					</div>
 				</DetailRow>
 				<ModuleListContainer>
@@ -82,7 +81,7 @@ const TrackDetail: React.FC<{ track: any }> = ({ track }) => {
 									<div>{module.title}</div>
 									<ModuleLength>
 										{humanReadableTimeFromSeconds(
-											module.length ?? 0
+											module.length
 										)}
 									</ModuleLength>
 								</li>

@@ -1,10 +1,12 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
 import { gql } from '../__generated__';
-import { Layout, QueryResult } from '../components';
+import { Layout } from '../components';
+import QueryResult from '../components/query-result';
 import TrackCard from '../containers/track-card';
 
-const TRACKS = gql(`
+/** TRACKS gql query to retrieve all tracks */
+export const TRACKS = gql(`
   query GetTracks {
     tracksForHome {
       id
@@ -26,10 +28,11 @@ const TRACKS = gql(`
  * We display a grid of tracks fetched with useQuery with the TRACKS query
  */
 const Tracks = () => {
-	const { data, loading, error } = useQuery(TRACKS);
+	const { loading, error, data } = useQuery(TRACKS);
+
 	return (
 		<Layout grid>
-			<QueryResult loading={loading} data={data} error={error}>
+			<QueryResult error={error} loading={loading} data={data}>
 				{data?.tracksForHome?.map((track) => (
 					<TrackCard key={track.id} track={track} />
 				))}

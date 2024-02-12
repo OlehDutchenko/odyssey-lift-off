@@ -4,6 +4,7 @@
 	"private": true,
 	"description": "front-end demo app for Apollo's lift-off course",
 	"scripts": {
+		"postinstall": "npm run generate",
 		"test": "vitest",
 		"start": "vite",
 		"build": "vite build",
